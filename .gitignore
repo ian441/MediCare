@@ -1,0 +1,76 @@
+# Healthcare Management System - Root .gitignore
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+yarn.lock
+package-lock.json
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+lerna-debug.log*
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Testing
+.mocha-result/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Misc
+.cache/
+tmp/
+temp/
+*.bak
+*.swp
+*.swo
+
+# Prisma
+prisma/*.db
+prisma/*.sqlite
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# AI/ML
+.copilot/
+
+# Project-specific
+uploads/
+public/uploads/
+admin-uploads/
+temp-files/

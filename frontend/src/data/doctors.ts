@@ -1,0 +1,138 @@
+export interface Doctor {
+  id: string;
+  name: string;
+  title: string;
+  specialty: string;
+  image: string;
+  bio: string;
+  experience: number;
+  rating: number;
+  reviews: number;
+  availability: string[];
+  languages: string[];
+  education: string;
+  fee: number;
+}
+
+export const doctors: Doctor[] = [
+  {
+    id: "dr-amina",
+    name: "Dr. Amina Wanjiku",
+    title: "Chief Medical Officer",
+    specialty: "General & Family Medicine",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face",
+    bio: "Dr. Amina brings over 18 years of experience in family medicine, providing comprehensive primary care to patients of all ages.",
+    experience: 18,
+    rating: 4.9,
+    reviews: 342,
+    availability: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    languages: ["English", "Swahili"],
+    education: "MBChB, University of Nairobi",
+    fee: 3500,
+  },
+  {
+    id: "dr-omondi",
+    name: "Dr. James Omondi",
+    title: "Senior Cardiologist",
+    specialty: "Cardiology",
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face",
+    bio: "Renowned cardiologist specializing in interventional cardiology and heart failure management.",
+    experience: 22,
+    rating: 4.8,
+    reviews: 287,
+    availability: ["Mon", "Wed", "Fri"],
+    languages: ["English", "Swahili", "Luo"],
+    education: "MBChB, MMED Cardiology, Kenyatta University",
+    fee: 5000,
+  },
+  {
+    id: "dr-njeri",
+    name: "Dr. Grace Njeri",
+    title: "Pediatrician",
+    specialty: "Pediatrics",
+    image: "https://images.unsplash.com/photo-1594824476967-48c8b964e05a?w=400&h=400&fit=crop&crop=face",
+    bio: "Passionate about children's health with expertise in neonatal care and childhood development.",
+    experience: 14,
+    rating: 4.9,
+    reviews: 456,
+    availability: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    languages: ["English", "Swahili", "Kikuyu"],
+    education: "MBChB, MMED Pediatrics, UoN",
+    fee: 3000,
+  },
+  {
+    id: "dr-kamau",
+    name: "Dr. Peter Kamau",
+    title: "Orthopedic Surgeon",
+    specialty: "Orthopedics",
+    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop&crop=face",
+    bio: "Expert in sports medicine, joint replacement, and fracture management with a focus on minimally invasive techniques.",
+    experience: 16,
+    rating: 4.7,
+    reviews: 198,
+    availability: ["Tue", "Thu", "Sat"],
+    languages: ["English", "Swahili"],
+    education: "MBChB, FCS Ortho, COSECSA",
+    fee: 5500,
+  },
+  {
+    id: "dr-achieng",
+    name: "Dr. Sophia Achieng",
+    title: "Gynecologist & Obstetrician",
+    specialty: "Gynecology & Obstetrics",
+    image: "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400&h=400&fit=crop&crop=face",
+    bio: "Dedicated to women's health with expertise in high-risk pregnancies and minimally invasive gynecological surgery.",
+    experience: 12,
+    rating: 4.9,
+    reviews: 523,
+    availability: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    languages: ["English", "Swahili", "Luo"],
+    education: "MBChB, MMED ObGyn, Moi University",
+    fee: 4500,
+  },
+  {
+    id: "dr-hassan",
+    name: "Dr. Ahmed Hassan",
+    title: "Neurologist",
+    specialty: "Neurology",
+    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=400&fit=crop&crop=face",
+    bio: "Specializes in stroke management, epilepsy, and neurodegenerative disorders.",
+    experience: 20,
+    rating: 4.8,
+    reviews: 167,
+    availability: ["Mon", "Wed", "Fri"],
+    languages: ["English", "Swahili", "Arabic"],
+    education: "MBChB, PhD Neuroscience, Oxford",
+    fee: 6000,
+  },
+  {
+    id: "dr-mwangi",
+    name: "Dr. Faith Mwangi",
+    title: "Dermatologist",
+    specialty: "Dermatology",
+    image: "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?w=400&h=400&fit=crop&crop=face",
+    bio: "Expert in skin conditions, cosmetic dermatology, and skin cancer screening for diverse skin tones.",
+    experience: 10,
+    rating: 4.8,
+    reviews: 312,
+    availability: ["Mon", "Tue", "Thu", "Fri"],
+    languages: ["English", "Swahili"],
+    education: "MBChB, MMED Dermatology, UoN",
+    fee: 4000,
+  },
+  {
+    id: "dr-kiprop",
+    name: "Dr. Daniel Kiprop",
+    title: "Psychiatrist",
+    specialty: "Mental Health & Counseling",
+    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop&crop=face",
+    bio: "Compassionate mental health specialist focusing on anxiety, depression, and PTSD counseling.",
+    experience: 15,
+    rating: 4.9,
+    reviews: 234,
+    availability: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    languages: ["English", "Swahili", "Kalenjin"],
+    education: "MBChB, MMED Psychiatry, UoN",
+    fee: 4000,
+  },
+];
