@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,13 +7,26 @@ import AboutPage from "@/pages/AboutPage";
 import ServicesPage from "@/pages/ServicesPage";
 import DoctorsPage from "@/pages/DoctorsPage";
 import AppointmentsPage from "@/pages/AppointmentsPage";
-import PatientPortal from "@/pages/PatientPortal";
-import TelemedicinePage from "@/pages/TelemedicinePage";
+import AdminPage from "@/pages/AdminPage";
+import AdminLoginPage from "@/pages/AdminLoginPage";
 import BlogPage from "@/pages/BlogPage";
-import PharmacyPage from "@/pages/PharmacyPage";
+import BlogDetailPage from "@/pages/BlogDetailPage";
+import EventsPage from "@/pages/EventsPage";
 import ContactPage from "@/pages/ContactPage";
 import SymptomChecker from "@/pages/SymptomChecker";
 import NotFound from "@/pages/NotFound";
+import { useAuthStore } from "@/stores/authStore";
+
+// Protected Admin Route Component
+function ProtectedAdminRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, user } = useAuthStore();
+
+  if (!isAuthenticated || user?.role !== "admin") {
+    return <Navigate to="/admin/login" replace />;
+  }
+
+  return <>{children}</>;
+}
 
 export default function App() {
   return (
@@ -27,10 +40,19 @@ export default function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/doctors" element={<DoctorsPage />} />
             <Route path="/appointments" element={<AppointmentsPage />} />
-            <Route path="/patient-portal" element={<PatientPortal />} />
-            <Route path="/telemedicine" element={<TelemedicinePage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/pharmacy" element={<PharmacyPage />} />
+            <Route path="/admin/login" element={<AdminLoginPage />} />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedAdminRoute>
+                  <AdminPage />
+                </ProtectedAdminRoute>
+              }
+            />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/blog" element={<BlogPage />} >
+              <Route path=":id/read-more" element={<BlogDetailPage />} />
+            </Route>
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/symptom-checker" element={<SymptomChecker />} />
             <Route path="*" element={<NotFound />} />
@@ -42,3 +64,4 @@ export default function App() {
     </Router>
   );
 }
+

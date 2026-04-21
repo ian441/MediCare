@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuthStore } from "@/stores/authStore";
 
 const quickReplies = [
   { q: "What are your working hours?", a: "We're open Mon-Sat 7AM-9PM. Our Emergency unit is open 24/7, including Sundays and holidays." },
   { q: "How do I book an appointment?", a: "You can book online through our Appointments page, call us at 0700 000 000, or walk in. Online booking is fastest!" },
   { q: "Do you accept NHIF?", a: "Yes! MediCare Clinic is fully NHIF-accredited. We also accept most major insurance providers." },
   { q: "Where are you located?", a: "We're located in Westlands, Nairobi, along Waiyaki Way. Plenty of parking available!" },
-  { q: "Do you offer telemedicine?", a: "Yes! You can consult our doctors via video call from anywhere. Visit our Telemedicine page to get started." },
 ];
 
 interface Message {
@@ -18,6 +18,14 @@ interface Message {
 }
 
 export default function LiveChat() {
+  const { isAuthenticated, user } = useAuthStore();
+
+  // Hide live chat when admin is logged in
+  const isAdminLoggedIn = isAuthenticated && user?.role === "admin";
+  if (isAdminLoggedIn) {
+    return null;
+  }
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { from: "bot", text: "Habari! 👋 Welcome to MediCare Clinic. How can I help you today?" },

@@ -16,8 +16,6 @@ import { useAppointmentStore } from "@/stores/appointmentStore";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 
-/// <reference types="vite/client" />
-
 const timeSlots = ["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"];
 
 const steps = ["Service", "Doctor", "Date & Time", "Your Details", "Confirm"];
@@ -70,8 +68,7 @@ export default function AppointmentsPage() {
         timestamp: new Date().toISOString(),
       };
 
-      // Send to Make.com webhook
-      const webhookUrl = import.meta.env.VITE_MAKE_WEBHOOK_URL as string;
+      const webhookUrl = import.VITE_MAKE_WEBHOOK_URL as string;
       if (!webhookUrl) {
         throw new Error("Webhook URL not configured");
       }
@@ -85,7 +82,6 @@ export default function AppointmentsPage() {
         throw new Error(`Webhook failed: ${response.status}`);
       }
 
-      // Proceed with booking
       addAppointment({
         service: appointmentData.service,
         doctor: appointmentData.doctor,
@@ -266,7 +262,7 @@ export default function AppointmentsPage() {
                     <div className="flex justify-between"><span className="text-muted-foreground">Doctor</span><span className="font-medium">{doctors.find(d => d.id === selectedDoctor)?.name}</span></div>
                     <div className="flex justify-between"><span className="text-muted-foreground">Date</span><span className="font-medium">{date ? format(date, "PPP") : ""}</span></div>
                     <div className="flex justify-between"><span className="text-muted-foreground">Time</span><span className="font-medium">{time}</span></div>
-                    <div className="flex justify-between"><span className="text-muted-foreground">Patient Name</span><span className="font-medium">{name}</span></div>
+                    <div className="flex justify-between"><span className="text-muted-foreground">Patient</span><span className="font-medium">{name}</span></div>
                     <div className="flex justify-between"><span className="text-muted-foreground">Contact</span><span className="font-medium">{phone}</span></div>
                     <div className="flex justify-between"><span className="text-muted-foreground">Email</span><span className="font-medium">{email}</span></div>
                     <hr className="border-border" />
@@ -298,4 +294,3 @@ export default function AppointmentsPage() {
     </div>
   );
 }
-

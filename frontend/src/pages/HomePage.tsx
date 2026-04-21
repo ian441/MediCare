@@ -49,10 +49,7 @@ export default function HomePage() {
                   <Button size="lg" variant="outline" className="text-lg px-8">Our Services</Button>
                 </Link>
               </motion.div>
-              <motion.p variants={fadeUp} custom={4} className="mt-4 text-sm text-muted-foreground">
-                Demo login: <code className="bg-muted px-2 py-0.5 rounded text-xs">patient@medicare.ke / password123</code>
-              </motion.p>
-            </motion.div>
+              </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -62,7 +59,7 @@ export default function HomePage() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=700&h=500&fit=crop"
+                  src="https://5.imimg.com/data5/YH/VH/ZQ/SELLER-8056176/hospital-project.png"
                   alt="MediCare Clinic - Modern healthcare facility"
                   className="w-full h-[500px] object-cover"
                 />

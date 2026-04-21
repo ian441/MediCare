@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Heart } from "lucide-react";
+import { useAuthStore } from "@/stores/authStore";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -8,17 +9,20 @@ const quickLinks = [
   { label: "Our Doctors", href: "/doctors" },
   { label: "Appointments", href: "/appointments" },
   { label: "Patient Portal", href: "/portal" },
-  { label: "Pharmacy", href: "/pharmacy" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
 const serviceLinks = [
   "General Medicine", "Emergency Care", "Cardiology", "Pediatrics",
-  "Gynecology", "Telemedicine", "Lab Services", "Mental Health",
+  "Gynecology", "Lab Services", "Mental Health",
 ];
 
 export default function Footer() {
+  const { isAuthenticated, user } = useAuthStore();
+
+
+
   return (
     <footer className="bg-foreground text-primary-foreground">
       <div className="container py-16">

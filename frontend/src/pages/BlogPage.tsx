@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blog";
 import { BookOpen, Clock, User } from "lucide-react";
 
@@ -25,8 +27,10 @@ export default function BlogPage() {
                   <CardContent className="md:col-span-2 p-6">
                     <span className="text-xs font-semibold text-primary bg-accent px-3 py-1 rounded-full">{post.category}</span>
                     <h2 className="font-heading font-bold text-xl mt-3 mb-2">{post.title}</h2>
-                    <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                    <p className="text-sm text-muted-foreground mb-4">{post.content}</p>
+                    <p className="text-muted-foreground mb-6 line-clamp-4">{post.excerpt}</p>
+                    <Button asChild className="h-auto p-0">
+<Link to={`/blog/${post.id}/read-more`} className="font-medium hover:no-underline">\n                        Read more →\n                      </Link>
+                    </Button>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1"><User className="w-4 h-4" />{post.author}</span>
                       <span className="flex items-center gap-1"><Clock className="w-4 h-4" />{post.readTime}</span>

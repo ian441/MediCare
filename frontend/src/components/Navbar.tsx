@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun, ShoppingCart, User, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCartStore } from "@/stores/cartStore";
 import { useAuthStore } from "@/stores/authStore";
 
 const navLinks = [
@@ -11,10 +10,10 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Doctors", href: "/doctors" },
-  { label: "Appointments", href: "/appointments" },
-  { label: "Telemedicine", href: "/telemedicine" },
-  { label: "Pharmacy", href: "/pharmacy" },
-  { label: "Blog", href: "/blog" },
+{ label: "Appointments", href: "/appointments" },
+ { label: "Events", href: "/events" },
+   { label: "Blog", href: "/blog" },
+
   { label: "Contact", href: "/contact" },
 ];
 
@@ -23,8 +22,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [dark, setDark] = useState(false);
   const location = useLocation();
-  const itemCount = useCartStore((s) => s.itemCount());
   const { isAuthenticated, user } = useAuthStore();
+
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -90,21 +90,22 @@ export default function Navbar() {
               {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
 
-            <Link to="/pharmacy" className="relative p-2 rounded-md hover:bg-muted transition-colors">
-              <ShoppingCart className="w-5 h-5" />
-              {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-xs flex items-center justify-center font-bold">
-                  {itemCount}
-                </span>
-              )}
-            </Link>
 
-            <Link to={isAuthenticated ? "/portal" : "/portal"}>
-              <Button variant="outline" size="sm" className="hidden sm:flex gap-1">
-                <User className="w-4 h-4" />
-                {isAuthenticated ? user?.name?.split(" ")[0] : "Patient Portal"}
-              </Button>
-            </Link>
+             {isAuthenticated && user?.role === "admin" ? (
+               <Link to="/admin">
+                 <Button variant="outline" size="sm" className="hidden sm:flex gap-1">
+                   <User className="w-4 h-4" />
+                   Dashboard
+                 </Button>
+               </Link>
+             ) : (
+               <Link to="/admin/login">
+                 <Button variant="outline" size="sm" className="hidden sm:flex gap-1">
+                   <User className="w-4 h-4" />
+                   Admin Panel
+                 </Button>
+               </Link>
+             )}
 
             <Link to="/appointments">
               <Button size="sm" className="hidden sm:flex gradient-medical border-0 text-primary-foreground hover:opacity-90">

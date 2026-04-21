@@ -31,8 +31,8 @@ export default function AboutPage() {
             <h2 className="text-3xl font-heading font-bold mb-6">Our <span className="gradient-medical-text">Story</span></h2>
             <div className="space-y-4 text-muted-foreground">
               <p>Founded in 2010 by a team of visionary Kenyan doctors, MediCare Clinic began as a small family practice in Westlands, Nairobi. Our founders believed that every Kenyan deserves access to quality, compassionate healthcare — regardless of their economic status.</p>
-              <p>Over the past 16 years, we have grown into one of Nairobi's most trusted multi-specialty clinics, serving over 50,000 patients. Our state-of-the-art facility houses 20+ specialized departments, a 24/7 emergency unit, modern diagnostic lab, and a fully stocked pharmacy.</p>
-              <p>We are proud to be NHIF-accredited, KMPDB-certified, and recognized by leading insurance providers. Our telemedicine platform extends our care beyond Nairobi's borders, reaching patients across Kenya and East Africa.</p>
+              <p>Over the past 16 years, we have grown into one of Nairobi's most trusted multi-specialty clinics, serving over 50,000 patients. Our state-of-the-art facility houses 20+ specialized departments, a 24/7 emergency unit, and a modern diagnostic lab.</p>
+              <p>We are proud to be NHIF-accredited, KMPDB-certified, and recognized by leading insurance providers.</p>
             </div>
           </div>
           <div className="rounded-3xl overflow-hidden shadow-xl">

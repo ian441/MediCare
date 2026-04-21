@@ -7,6 +7,7 @@ import rateLimit, { RateLimitRequestHandler } from 'express-rate-limit';
 import { errorHandler } from '@/middleware/errorHandler';
 import { logger } from '@/config/logger';
 import authRoutes from '@/routes/auth.routes';
+import adminRoutes from '@/routes/admin.routes';
 
 const app: Express = express();
 
@@ -74,6 +75,7 @@ app.get('/health', (req: Request, res: Response) => {
 // ============ API ROUTES ============
 
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/admin', adminRoutes);
 
 // API root endpoint
 app.get('/api/v1', (req: Request, res: Response) => {

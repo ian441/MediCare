@@ -1,7 +1,7 @@
 import {
   Stethoscope, Siren, Brain, Baby, Heart, Bone, Ear, Eye, 
   Pill, Activity, Smile, Dumbbell, Syringe, Shield, Home,
-  Video, FlaskConical, Truck, HeartPulse, Thermometer, Scissors, Plane
+  FlaskConical, Truck, HeartPulse, Thermometer, Scissors, Plane
 } from "lucide-react";
 
 export interface Service {
@@ -107,16 +107,6 @@ export const services: Service[] = [
     category: "Specialist",
   },
   {
-    id: "telemedicine",
-    name: "Telemedicine / Video Consultations",
-    description: "Consult with our doctors from the comfort of your home via secure video call.",
-    longDescription: "Our telemedicine platform allows you to consult with qualified doctors remotely via high-quality video call. Ideal for follow-ups, minor ailments, prescription renewals, and health advice without leaving your home.",
-    icon: Video,
-    priceRange: "KSh 1,500 - 4,000",
-    duration: "15 - 30 min",
-    category: "Virtual Care",
-  },
-  {
     id: "lab-services",
     name: "Diagnostic & Lab Services",
     description: "Complete lab tests, imaging (X-ray, Ultrasound, CT, MRI), ECG, and online results viewing.",
@@ -125,16 +115,6 @@ export const services: Service[] = [
     priceRange: "KSh 500 - 35,000",
     duration: "15 min - 2 hrs",
     category: "Diagnostics",
-  },
-  {
-    id: "pharmacy",
-    name: "Pharmacy & Medicine Delivery",
-    description: "Full-service pharmacy with e-prescription filling and same-day medicine delivery across Nairobi.",
-    longDescription: "Our in-house pharmacy stocks a comprehensive range of medications. Order online and get same-day delivery within Nairobi. We also offer prescription management, drug interaction checks, and medication counseling.",
-    icon: Pill,
-    priceRange: "Varies by medication",
-    duration: "Same-day delivery",
-    category: "Pharmacy",
   },
   {
     id: "chronic-disease",
